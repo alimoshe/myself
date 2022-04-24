@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+@font-face {
+    font-family: 'BYekan';
+    src: url('./fonts/BYekan.eot');
+    src: local('BYekan'), url('./fonts/BYekan.woff') format('woff'), url('./fonts/BYekan.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_17029">Text with this font applied</p> */
+body {
+    font-family: 'BYekan' !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.code-box-demo {
+    text-align: right;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.ant-layout-header,
+.ant-layout-footer {
+    color: #fff;
+    background: #7dbcea;
 }
-
-.App-link {
-  color: #61dafb;
+[data-theme="dark"] .ant-layout-header {
+    background: #6aa0c7;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+[data-theme="dark"] .ant-layout-footer {
+    background: #6aa0c7;
+}
+.ant-layout-footer {
+    line-height: 1.5;
+}
+.ant-layout-sider {
+    color: #fff;
+    line-height: 120px;
+    background: #3ba0e9;
+}
+[data-theme="dark"] .ant-layout-sider {
+    background: #3499ec;
+}
+.ant-layout-content {
+    min-height: 120px;
+    height: 100%;
+    color: #fff;
+    line-height: 120px;
+    background: rgba(16, 142, 233, 1);
+}
+[data-theme="dark"] .ant-layout-content {
+    background: #107bcb;
+}
+> .code-box-demo > .ant-layout + .ant-layout {
+    margin-top: 48px;
+}
+.ant-layout-header {
+    color: white;
 }
