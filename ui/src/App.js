@@ -1,30 +1,43 @@
-import {Breadcrumb, ConfigProvider, Layout, Menu} from "antd";
+import {Card, ConfigProvider, Layout, Menu} from "antd";
 import './App.css';
 import faIR from 'antd/lib/locale/fa_IR';
 import 'moment/locale/fa';
 import moment from "moment";
-import {Content, Footer, Header} from "antd/es/layout/layout";
+import {Content, Header} from "antd/es/layout/layout";
+import {useState} from "react";
+import ComponentLoader from "./components/componentLoader";
+
 
 
 function App() {
+    const [pageNumber, setPageNumber] = useState(1);
+
+    const onMenuItemClick = (e) => {
+        setPageNumber(+e.key);
+    }
+
     moment.locale('fa');
     return (
-        <ConfigProvider direction={"rtl"} locale={faIR} componentSize={"large"}>
+        <ConfigProvider direction={"rtl"} locale={faIR} componentSize={"small"}>
             <div>
-
-
                 <Layout className="layout">
                     <Header>
-                        <div className="logo" />
+                        <div className="logo"/>
                         <Menu
                             theme="dark"
                             mode="horizontal"
-                            defaultSelectedKeys={['2']}
-                            items={[{key: 1, label:'test1'},{key:2,label:'محصولات و خدمات'}]}
+                            defaultSelectedKeys={['1']}
+                            items={
+                                [
+                                    {key: 1, label: 'محصولات' , onClick : onMenuItemClick},
+                                    {key: 2, label: 'گالری تصاویر'  , onClick : onMenuItemClick},
+
+                                ]
+                            }
                         />
                     </Header>
-                    <Content style={{ padding: '0 50px' }}>
-
+                    <Content style={{padding: '10px 10px 10px 10px'}}>
+                        <ComponentLoader sectionId={pageNumber} />
                     </Content>
 
                 </Layout>

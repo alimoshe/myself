@@ -12,41 +12,12 @@ body {
 .code-box-demo {
     text-align: right;
 }
-.ant-layout-header,
-.ant-layout-footer {
-    color: #fff;
-    background: #7dbcea;
-}
-[data-theme="dark"] .ant-layout-header {
-    background: #6aa0c7;
-}
-[data-theme="dark"] .ant-layout-footer {
-    background: #6aa0c7;
-}
-.ant-layout-footer {
-    line-height: 1.5;
-}
-.ant-layout-sider {
-    color: #fff;
-    line-height: 120px;
-    background: #3ba0e9;
-}
-[data-theme="dark"] .ant-layout-sider {
-    background: #3499ec;
-}
 .ant-layout-content {
-    min-height: 120px;
-    height: 100%;
-    color: #fff;
-    line-height: 120px;
-    background: rgba(16, 142, 233, 1);
+    background-color: white;
 }
-[data-theme="dark"] .ant-layout-content {
-    background: #107bcb;
+.ant-card-head-title {
+    padding: 0;
 }
-> .code-box-demo > .ant-layout + .ant-layout {
-    margin-top: 48px;
-}
-.ant-layout-header {
-    color: white;
+.ant-table-wrapper {
+    font-family: Tahoma;
 }
