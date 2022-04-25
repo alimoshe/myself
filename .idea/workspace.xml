@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b20969-ad8e-4e1d-8344-571734d8346c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/routes/gallery.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/fonts/tahoma.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+    <list default="true" id="54b20969-ad8e-4e1d-8344-571734d8346c" name="Changes" comment="Add Backend API">
+      <change afterPath="$PROJECT_DIR$/backend/src/models/master.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/routes/category.route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/api/category.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/config/api-urls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +69,14 @@
       <workItem from="1650816283721" duration="2973000" />
       <workItem from="1650819731884" duration="6604000" />
     </task>
+    <task id="LOCAL-00001" summary="Add Backend API">
+      <created>1650905364630</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1650905364630</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,6 +98,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/ui" />
     </ignored-roots>
+    <MESSAGE value="Add Backend API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Backend API" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
