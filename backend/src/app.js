@@ -10,12 +10,12 @@ cms_app.use(cors({
 }));
 // --------------------------------------- use all middleware
 cms_app.use(express.json());
-cms_app.use('/gallery', galleryRouter);
-cms_app.use('/category', categoryRouter);
+
 // --------------------------------------- Use Morgan Package for log all http event
 cms_app.use(morgan('combined'));
 // --------------------------------------- Register all routes exist in API
-
+cms_app.use('/gallery', galleryRouter);
+cms_app.use('/category', categoryRouter);
 cms_app.get('/',(req, res)=>{
     res.status(200).send({
         ok : true
