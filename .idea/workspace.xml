@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b20969-ad8e-4e1d-8344-571734d8346c" name="Changes" comment="Add Categories and Gallery Router to backend and put a Structure for ui Call web method by adding a config Folder">
-      <change afterPath="$PROJECT_DIR$/backend/public/images/test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/category.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/category.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/gallery.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/gallery.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/api/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/api/category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/config/api-urls.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/config/api-urls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="54b20969-ad8e-4e1d-8344-571734d8346c" name="Changes" comment="add multer package for gallery handle files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650908137056</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add multer package for gallery handle files">
+      <created>1650912246689</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650912246689</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,7 +106,8 @@
     </ignored-roots>
     <MESSAGE value="Add Backend API" />
     <MESSAGE value="Add Categories and Gallery Router to backend and put a Structure for ui Call web method by adding a config Folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Categories and Gallery Router to backend and put a Structure for ui Call web method by adding a config Folder" />
+    <MESSAGE value="add multer package for gallery handle files" />
+    <option name="LAST_COMMIT_MESSAGE" value="add multer package for gallery handle files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
