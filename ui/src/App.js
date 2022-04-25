@@ -29,8 +29,16 @@ function App() {
                             defaultSelectedKeys={['1']}
                             items={
                                 [
-                                    {key: 1, label: 'محصولات' , onClick : onMenuItemClick},
-                                    {key: 2, label: 'گالری تصاویر'  , onClick : onMenuItemClick},
+                                    {
+                                        key: 1,
+                                        label: 'محصولات' ,
+                                        onClick : onMenuItemClick
+                                    },
+                                    {
+                                        key: 2,
+                                        label: 'گالری تصاویر',
+                                        onClick : onMenuItemClick
+                                    },
 
                                 ]
                             }

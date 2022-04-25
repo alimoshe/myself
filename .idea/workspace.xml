@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54b20969-ad8e-4e1d-8344-571734d8346c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ui/src/components/componentLoader.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/pages/products.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/static-models/proudctsModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/routes/gallery.route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/fonts/tahoma.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.js" afterDir="false" />
     </list>
@@ -29,12 +31,15 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="28EiEglcTUZULKUez8EIqVSVCJ0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -81,6 +86,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/ui" />
     </ignored-roots>
