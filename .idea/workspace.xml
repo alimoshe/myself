@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54b20969-ad8e-4e1d-8344-571734d8346c" name="Changes" comment="Add Categories and Gallery Router to backend and put a Structure for ui Call web method by adding a config Folder">
-      <change afterPath="$PROJECT_DIR$/backend/public/images/test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/category.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/category.route.js" afterDir="false" />
+    <list default="true" id="54b20969-ad8e-4e1d-8344-571734d8346c" name="Changes" comment="Add componentLoader">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/images/test" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/api/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/routes/gallery.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/gallery.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/api/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/api/category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/config/api-urls.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/config/api-urls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/config/api-urls.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/config/api-urls.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

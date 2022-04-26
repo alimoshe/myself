@@ -4,12 +4,12 @@
     src: local('BYekan'), url('./fonts/BYekan.woff') format('woff'), url('./fonts/BYekan.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'Tahoma';
-    src:url('./fonts/BYekan.ttf') format('truetype');
+    font-family: "Tahoma";
+    src:url('./fonts/tahoma.ttf') format('truetype');
 }
 /* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_17029">Text with this font applied</p> */
 body {
-    font-family: 'BYekan' !important;
+    font-family: 'Tahoma' !important;
 }
 
 
@@ -18,10 +18,8 @@ body {
 }
 .ant-layout-content {
     background-color: white;
+    font-family: "Tahoma", "B Yekan" !important;
 }
 .ant-card-head-title {
     padding: 0;
-}
-.ant-table-wrapper {
-    font-family: Tahoma;
 }
