@@ -7,14 +7,7 @@
       <change afterPath="$PROJECT_DIR$/backend/public/images/3.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/backend/public/images/4.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/backend/public/images/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/components/categorySelect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/components/galleryCollection.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/components/toolbar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +45,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -74,7 +67,7 @@
       <workItem from="1650788040900" duration="304000" />
       <workItem from="1650816283721" duration="2973000" />
       <workItem from="1650819731884" duration="6604000" />
-      <workItem from="1651034333510" duration="13000000" />
+      <workItem from="1651034333510" duration="13714000" />
     </task>
     <task id="LOCAL-00001" summary="Add Backend API">
       <created>1650905364630</created>
@@ -104,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651036526904</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add componentLoader">
+      <created>1651062836301</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1651062836301</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
