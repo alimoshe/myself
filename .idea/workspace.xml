@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54b20969-ad8e-4e1d-8344-571734d8346c" name="Changes" comment="Add componentLoader">
+      <change afterPath="$PROJECT_DIR$/backend/public/images/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/components/categorySelect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/components/galleryCollection.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/components/toolbar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +74,7 @@
       <workItem from="1650788040900" duration="304000" />
       <workItem from="1650816283721" duration="2973000" />
       <workItem from="1650819731884" duration="6604000" />
-      <workItem from="1651034333510" duration="820000" />
+      <workItem from="1651034333510" duration="13000000" />
     </task>
     <task id="LOCAL-00001" summary="Add Backend API">
       <created>1650905364630</created>
@@ -85,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650978834648</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add componentLoader">
+      <created>1651036526904</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1651036526904</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

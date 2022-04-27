@@ -4,52 +4,56 @@ import categoryApi from '../api/category';
 import commonApi from '../api/common'
 import {Option} from "antd/lib/mentions";
 import $ from 'jquery';
+import Toolbar from "../components/toolbar";
+import GalleryCollection from "../components/galleryCollection";
+import CategorySelect from "../components/categorySelect";
+
 
 
 const GalleryPage = () => {
-
-    const [categories, setCategories] = useState([{}]);
+    // Definition States
+    const [images, setImages] = useState([]);
+    const [categories, setCategories] = useState([]);
+    // load All state and initiate the category data
     useEffect(()=>{
         categoryApi.loadAllCategories((state) => {
             setCategories(state);
         });
     },[]);
-    const handleChange = (value) => {
-        console.log(value);
-    }
 
     const onSelectPicture = (e) => {
         commonApi.sendImageToApi(e.target.files[0],(res)=>{
-            console.log(res);
+            if(res.ok === true){
+                console.log(e.target.files[0]);
+                const imagePath = URL.createObjectURL(e.target.files[0]);
+                const imagesArray = [...images];
+                imagesArray.push(imagePath);
+                setImages(imagesArray);
+            }
         })
     }
 
-    const generateItems = () => {
-        return  (
-            categories.map((data, index) => (
-                <Option key={data.id} value={data.id}>{data.title}</Option>
-            )));
+    const removePic = (index) => {
+        const imagesArray = [...images];
+        imagesArray.splice(Number(index) - 1, 1);
+        setImages(imagesArray);
     }
+
     return (
         <Card title="گالری تصاویر" type={"inner"}>
 
-            <Select
-                mode="multiple"
-                allowClear
-                size={"large"}
-                style={{ width: '80%' }}
-                placeholder="لطفاْ یک مورد را انتخاب کنید"
-                onChange={handleChange}
-            >
-                {
-                    generateItems()
-                }
-            </Select>
+            <CategorySelect categories={categories}
+                            handleChangeCollection={(data) => console.log(data)} />
             <Button type={"primary"}
                     size={"large"}
-                    onClick={() => {$('.btnChoosePicture').click()}}
                     style={{paddingBottom:'8px'}}
             >جستجوی تصاویر</Button>
+            <div className="divider-1"/>
+            <Toolbar create size={"large"} type={"circle"}  onCreateClick={() => {$('.btnChoosePicture').click()}}/>
+            <div className="divider-1" />
+
+            <GalleryCollection images={images} removePic={removePic} />
+
             <input className="input-group btnChoosePicture"
                    accept=".gif,.jpg,.jpeg,.png"
                    id="btnChoosePicture"
