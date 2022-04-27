@@ -5,17 +5,12 @@
     <list default="true" id="54b20969-ad8e-4e1d-8344-571734d8346c" name="Changes" comment="add multer package for gallery handle files" />
 =======
     <list default="true" id="54b20969-ad8e-4e1d-8344-571734d8346c" name="Changes" comment="Add componentLoader">
+      <change afterPath="$PROJECT_DIR$/backend/public/images/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/public/images/7.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/public/images/test" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/api/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/routes/gallery.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/routes/gallery.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ui/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/config/api-urls.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/config/api-urls.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/pages/gallery.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/webpack.config.js" afterDir="false" />
     </list>
 >>>>>>> 7339d4a607dd0e96cd98dcacd74f462cf833df8a
     <option name="SHOW_DIALOG" value="false" />
@@ -52,9 +47,9 @@
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="PLAIN_TEXT" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path" value="/software/Programming/nodejs/bin/node" />
+    <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -76,6 +71,7 @@
       <workItem from="1650788040900" duration="304000" />
       <workItem from="1650816283721" duration="2973000" />
       <workItem from="1650819731884" duration="6604000" />
+      <workItem from="1651034333510" duration="13714000" />
     </task>
     <task id="LOCAL-00001" summary="Add Backend API">
       <created>1650905364630</created>
@@ -91,6 +87,7 @@
       <option name="project" value="LOCAL" />
       <updated>1650908137056</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00003" summary="add multer package for gallery handle files">
       <created>1650912246689</created>
       <option name="number" value="00003" />
@@ -99,6 +96,30 @@
       <updated>1650912246689</updated>
     </task>
     <option name="localTasksCounter" value="4" />
+=======
+    <task id="LOCAL-00003" summary="Add componentLoader">
+      <created>1650978834648</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650978834648</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add componentLoader">
+      <created>1651036526904</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1651036526904</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add componentLoader">
+      <created>1651062836301</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1651062836301</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+>>>>>>> 74651aa39733c87934dedbf7c2c326727d744656
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,8 +143,13 @@
     </ignored-roots>
     <MESSAGE value="Add Backend API" />
     <MESSAGE value="Add Categories and Gallery Router to backend and put a Structure for ui Call web method by adding a config Folder" />
+<<<<<<< HEAD
     <MESSAGE value="add multer package for gallery handle files" />
     <option name="LAST_COMMIT_MESSAGE" value="add multer package for gallery handle files" />
+=======
+    <MESSAGE value="Add componentLoader" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add componentLoader" />
+>>>>>>> 74651aa39733c87934dedbf7c2c326727d744656
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
