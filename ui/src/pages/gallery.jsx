@@ -11,7 +11,7 @@ const GalleryPage = () => {
     // Definition States
     const [images, setImages] = useState([]);
     const [showSpinner, setShowSpinner] = useState(false);
-    // load All state and initiate the category data
+    // load All state and initiate the other Variables
     useEffect(() => {
 
     }, []);
@@ -19,7 +19,6 @@ const GalleryPage = () => {
     const onSelectPicture = (e) => {
         commonApi.sendImageToApi(e.target.files[0], (res) => {
             if (res.ok === true) {
-                console.log(res);
                 $('.btnSearchPicture').click();
             }
         })
