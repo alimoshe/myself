@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {Button, Card, Space, Spin} from "antd";
+import {Button, Card, Divider, Space, Spin} from "antd";
 import commonApi from '../api/common'
 import {GALLERY_BASE_URL} from '../config/api-urls';
 import $ from 'jquery';
 import Toolbar from "../components/toolbar";
 import GalleryCollection from "../components/galleryCollection";
+import MyPagination from "../components/myPagination";
 
 
 const GalleryPage = () => {
@@ -66,6 +67,8 @@ const GalleryPage = () => {
                    id="btnChoosePicture"
                    onInput={onSelectPicture}
                    type="file" style={{display: 'none'}}/>
+            <Divider type={"horizontal"} orientation={"right"} />
+            <MyPagination onPageChanged={(e) => console.log(e)} />
 
         </Card>
     )

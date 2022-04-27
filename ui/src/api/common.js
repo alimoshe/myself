@@ -27,7 +27,14 @@ const Common = {
         fetch(`${GALLERY_BASE_URL}/rdc/${fileName}`, {method : 'DELETE'})
             .then((result) => result.json())
             .then((removeConclusion) => deleteCompletion(removeConclusion));
-    }
+    },
+    loadPaginatedGalleryData : (pageNumber,loadComplete) => {
+        fetch(`${GALLERY_BASE_URL}/rdc-page/${pageNumber}`)
+            .then(res => res.json())
+            .then((allNames)=>{
+                loadComplete(allNames);
+            })
+    },
 }
 
 export default Common;
