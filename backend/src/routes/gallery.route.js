@@ -4,6 +4,8 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 
+
+// Create Multer Package Storage which means Location of storing Data
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'public/images');
@@ -16,6 +18,7 @@ const storage = multer.diskStorage({
         }
     }
 })
+// Main route for upload Gallery Image data
 const upload = multer({storage: storage}).single('file')
 galleryRouter.post('/upload', (req, res) => {
     upload(req, res, (err) => {
@@ -30,12 +33,14 @@ galleryRouter.post('/upload', (req, res) => {
 
 });
 
+// Get All Content of gallery Directory which reside on Server
 galleryRouter.get('/rdc', (req, res) => {
     const directoryPath = path.join(__dirname, '..', '..', 'public', 'images');
     const directoryContent = fs.readdirSync(directoryPath);
     return res.status(200).send(directoryContent);
 })
 
+// Get name of a file from Request parameters and Return Binary Image content
 galleryRouter.get('/rdc/:fileName', (req, res) => {
     try {
         const imageFileName = req.params.fileName;
@@ -46,6 +51,7 @@ galleryRouter.get('/rdc/:fileName', (req, res) => {
     }
 })
 
+// remove a File from Gallery Directory by name
 galleryRouter.delete('/rdc/:fileName', (req, res) => {
     try {
         const imageFileName = req.params.fileName;
@@ -56,7 +62,13 @@ galleryRouter.delete('/rdc/:fileName', (req, res) => {
         res.status(404).send({err: error});
     }
 })
+// Get Paginated Gallery Items
+galleryRouter.get('/rdc-page/:pageNumber', (req, res) => {
 
+    const directoryPath = path.join(__dirname, '..', '..', 'public', 'images');
+    const directoryContent = fs.readdirSync(directoryPath);
+    return res.status(200).send(directoryContent);
+})
 
 galleryRouter.get('/', (req, res) => {
     return res.status(200).send({ok: true});
