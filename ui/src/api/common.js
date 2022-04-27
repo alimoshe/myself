@@ -22,6 +22,11 @@ const Common = {
             .then((url) => {
                 getCompletion(url);
             });
+    },
+    removeGalleryFile : (fileName, deleteCompletion) => {
+        fetch(`${GALLERY_BASE_URL}/rdc/${fileName}`, {method : 'DELETE'})
+            .then((result) => result.json())
+            .then((removeConclusion) => deleteCompletion(removeConclusion));
     }
 }
 

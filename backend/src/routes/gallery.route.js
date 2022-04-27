@@ -36,11 +36,22 @@ galleryRouter.get('/rdc', (req, res) => {
     return res.status(200).send(directoryContent);
 })
 
-galleryRouter.get('/rdc/:fileName',  (req, res) => {
+galleryRouter.get('/rdc/:fileName', (req, res) => {
     try {
         const imageFileName = req.params.fileName;
         const directoryPath = path.join(__dirname, '..', '..', 'public', 'images');
         return res.status(200).sendFile(directoryPath + '/' + imageFileName);
+    } catch (error) {
+        res.status(404).send({err: error});
+    }
+})
+
+galleryRouter.delete('/rdc/:fileName', (req, res) => {
+    try {
+        const imageFileName = req.params.fileName;
+        const directoryPath = path.join(__dirname, '..', '..', 'public', 'images');
+        fs.rmSync(directoryPath + '/' + imageFileName);
+        return res.status(200).send({ok: true});
     } catch (error) {
         res.status(404).send({err: error});
     }

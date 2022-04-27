@@ -33,8 +33,12 @@ const GalleryPage = () => {
     }
 
     const removePic = (index) => {
-        console.log(images[index -1]);
-        //$('.anticon-close').click();
+        const fileToDelete = images[index -1];
+        commonApi.removeGalleryFile(fileToDelete, () => {
+            $('.btnSearchPicture').click();
+            $('.anticon-close').click();
+        })
+
     }
 
     return (
