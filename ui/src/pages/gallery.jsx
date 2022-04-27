@@ -37,6 +37,7 @@ const GalleryPage = () => {
         const imagesArray = [...images];
         imagesArray.splice(Number(index) - 1, 1);
         setImages(imagesArray);
+        $('.anticon-close').click();
     }
 
     return (
