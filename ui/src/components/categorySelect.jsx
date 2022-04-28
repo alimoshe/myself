@@ -16,7 +16,7 @@ const CategorySelect = ({categories, handleChangeCollection}) => {
             mode="multiple"
             allowClear
             size={"large"}
-            style={{ width: '80%' }}
+            style={{ width: '95%' }}
             placeholder="لطفاْ یک مورد را انتخاب کنید"
             onChange={handleChangeCollection}
         >

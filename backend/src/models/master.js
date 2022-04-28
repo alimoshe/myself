@@ -1,4 +1,23 @@
-const MasterData = {
+const MasterData = {    title : {
+        type:String,
+        required : true,
+    },
+    ecoCode : {
+       type:String,
+       required : false,
+    },
+    address : {
+        type : String,
+        required : true,
+    },
+    webSiteAddress : {
+        type : String,
+        required : false,
+    },
+    agentFullName : {
+        type : String,
+        required : false,
+    },
     activityGroups: [
         {
             id: 1,

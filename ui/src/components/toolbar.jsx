@@ -1,16 +1,15 @@
 import React from "react";
 import {Button, Space, Tooltip} from "antd";
-import {PlusCircleOutlined} from "@ant-design/icons";
+import {PlusCircleOutlined, SearchOutlined} from "@ant-design/icons";
 
 const Toolbar = ({
                      create,
                      read,
-                     update,
-                     remove,
                      sort,
                      size,
                      type,
-                     onCreateClick
+                     onCreateClick,
+                     onRefreshClick
                  }) => {
     return (
         <div>
@@ -25,9 +24,22 @@ const Toolbar = ({
                                     icon={<PlusCircleOutlined/>}/>
 
                         </Tooltip>
+
                     )
                 }
+                {
+                    read && (
+                        <Tooltip title={"بازخوانی"}>
+                            <Button type={"primary"}
+                                    onClick={onRefreshClick}
+                                    shape={type}
+                                    size={size}
+                                    icon={<SearchOutlined/>}/>
 
+                        </Tooltip>
+
+                    )
+                }
             </Space>
         </div>
     )

@@ -27,6 +27,15 @@ const VendorModel = new mongoose.Schema({
     postalCode : {
         type:String,
         required:false,
+    },
+    active : {
+        type:Boolean,
+        required:false,
+        default : true
+    },
+    disActiveDate : {
+        type:Date,
+        required:false
     }
 });
 
