@@ -51,7 +51,7 @@ galleryRouter.get('/rdc/:fileName', (req, res) => {
     }
 })
 
-// remove a File from Gallery Directory by name
+// Remove a File from Gallery Directory by name
 galleryRouter.delete('/rdc/:fileName', (req, res) => {
     try {
         const imageFileName = req.params.fileName;

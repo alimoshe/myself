@@ -1,12 +1,16 @@
 import React from "react";
 import {Pagination} from "antd";
 
-const MyPagination = ({onPageChanged}) => {
+const MyPagination = ({onPageChanged, total, pageCount}) => {
     return(
         <React.Fragment>
             <Pagination defaultCurrent={1}
                         onChange={onPageChanged}
-                        total={500} />
+                        total={total}
+                        size={"default"}
+
+            />
+
         </React.Fragment>
     )
 }

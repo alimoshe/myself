@@ -68,7 +68,8 @@ const GalleryPage = () => {
                    onInput={onSelectPicture}
                    type="file" style={{display: 'none'}}/>
             <Divider type={"horizontal"} orientation={"right"} />
-            <MyPagination onPageChanged={(e) => console.log(e)} />
+            <MyPagination total={100}
+                          onPageChanged={(e) => console.log(e)} />
 
         </Card>
     )
