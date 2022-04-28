@@ -39,7 +39,11 @@ function App() {
                                         label: 'گالری تصاویر',
                                         onClick : onMenuItemClick
                                     },
-
+                                    {
+                                        key: 3,
+                                        label: 'تامین کنندگان',
+                                        onClick : onMenuItemClick
+                                    },
                                 ]
                             }
                         />

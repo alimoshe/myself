@@ -6,10 +6,7 @@ const GalleryCollection = ({images, toolbar, removePic, baseApiURL}) => {
     const handleDeleteImage = (e) => {
         removePic(e);
     }
-    const BreakLine = (index) => {
-        if (((+index) / 8) === 0)
-            return (<br/>);
-    }
+
     return (
         <div className="picture-panel" style={{display: "flex", flexWrap: "wrap"}}>
             <Image.PreviewGroup preview={{
