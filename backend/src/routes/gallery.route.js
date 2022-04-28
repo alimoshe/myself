@@ -63,11 +63,31 @@ galleryRouter.delete('/rdc/:fileName', (req, res) => {
     }
 })
 // Get Paginated Gallery Items
-galleryRouter.get('/rdc-page/:pageNumber', (req, res) => {
+galleryRouter.get('/rdc-page/:pageNumber/:pageSize', (req, res) => {
+
+    const pageNumber = req.params.pageNumber;
+    const pageSize = req.params.pageSize;
 
     const directoryPath = path.join(__dirname, '..', '..', 'public', 'images');
     const directoryContent = fs.readdirSync(directoryPath);
-    return res.status(200).send(directoryContent);
+    const paginatedContent = [];
+
+    if(directoryContent.length <= pageSize) {
+        return res.status(200).send(directoryContent);
+    }
+    let topLimitIndex = ((pageNumber -1) * pageSize) + +pageSize;
+    let startIndex  = (pageNumber - 1) * pageSize;
+
+    let index = startIndex;
+    while (index < topLimitIndex) {
+        if(directoryContent[index]){
+            paginatedContent.push(directoryContent[index]);
+            index++;
+        }
+        else
+            break;
+    }
+    return res.status(200).send({content : paginatedContent, length:directoryContent.length});
 })
 
 galleryRouter.get('/', (req, res) => {

@@ -11,7 +11,7 @@ const GalleryCollection = ({images, toolbar, removePic, baseApiURL}) => {
             <Space>
                 {
                     images.map((source, index) => (
-                        <Image width={200} height={200} src={baseApiURL + source} key={index}/>
+                        <Image width={180} height={180} src={baseApiURL + source} key={index}/>
                     ))
                 }
             </Space>

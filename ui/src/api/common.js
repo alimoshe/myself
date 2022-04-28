@@ -28,8 +28,8 @@ const Common = {
             .then((result) => result.json())
             .then((removeConclusion) => deleteCompletion(removeConclusion));
     },
-    loadPaginatedGalleryData : (pageNumber,loadComplete) => {
-        fetch(`${GALLERY_BASE_URL}/rdc-page/${pageNumber}`)
+    loadPaginatedGalleryData : (pageNumber, pageSize, loadComplete) => {
+        fetch(`${GALLERY_BASE_URL}/rdc-page/${pageNumber}/${pageSize}`)
             .then(res => res.json())
             .then((allNames)=>{
                 loadComplete(allNames);

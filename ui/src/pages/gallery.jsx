@@ -12,6 +12,8 @@ const GalleryPage = () => {
     // Definition States
     const [images, setImages] = useState([]);
     const [showSpinner, setShowSpinner] = useState(false);
+    const [totalPageItemsCount, setTotalPageItemsCount] = useState(1);
+    const [currentPageSelected, setCurrentPageSelected] = useState(1);
     // load All state and initiate the other Variables
     useEffect(() => {
 
@@ -27,8 +29,9 @@ const GalleryPage = () => {
 
     const loadAllGalleryFiles = () => {
         setShowSpinner(true);
-        commonApi.loadAllGalleryData((data) => {
-            setImages(data);
+        commonApi.loadPaginatedGalleryData(currentPageSelected,10,(data) => {
+            setImages(data.content);
+            setTotalPageItemsCount(data.length);
         });
         setShowSpinner(false);
     }
@@ -40,6 +43,13 @@ const GalleryPage = () => {
             $('.anticon-close').click();
         })
 
+    }
+
+    const handleChangePage = (pageNumber) => {
+        console.log(pageNumber);
+        commonApi.loadPaginatedGalleryData(pageNumber,10,(data) => {
+            setImages(data.content);
+        });
     }
 
     return (
@@ -68,8 +78,8 @@ const GalleryPage = () => {
                    onInput={onSelectPicture}
                    type="file" style={{display: 'none'}}/>
             <Divider type={"horizontal"} orientation={"right"} />
-            <MyPagination total={100}
-                          onPageChanged={(e) => console.log(e)} />
+            <MyPagination total={totalPageItemsCount}
+                          onPageChanged={(e) => handleChangePage(+e)} />
 
         </Card>
     )
