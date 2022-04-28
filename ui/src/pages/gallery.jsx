@@ -13,7 +13,6 @@ const GalleryPage = () => {
     const [images, setImages] = useState([]);
     const [showSpinner, setShowSpinner] = useState(false);
     const [totalPageItemsCount, setTotalPageItemsCount] = useState(1);
-    const [currentPageSelected, setCurrentPageSelected] = useState(1);
     // load All state and initiate the other Variables
     useEffect(() => {
 
@@ -29,7 +28,7 @@ const GalleryPage = () => {
 
     const loadAllGalleryFiles = () => {
         setShowSpinner(true);
-        commonApi.loadPaginatedGalleryData(currentPageSelected,10,(data) => {
+        commonApi.loadPaginatedGalleryData(1,10,(data) => {
             setImages(data.content);
             setTotalPageItemsCount(data.length);
         });
@@ -53,7 +52,7 @@ const GalleryPage = () => {
     }
 
     return (
-        <Card title="گالری تصاویر" type={"inner"}>
+        <Card title="گالری تصاویر" type={"inner"} style={{width:'100%'}}>
             <Space>
                 <Button type={"primary"}
                         size={"large"}
