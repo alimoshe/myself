@@ -5,11 +5,19 @@ const morgan = require('morgan');
 const galleryRouter = require('./routes/gallery.route');
 const categoryRouter = require('./routes/category.route');
 const cms_app = express();
+const databaseConnection  = require('./services/mongodb.service');
+const mongoose = require('mongoose');
+
 cms_app.use(cors({
     origin:'*'
 }));
 // --------------------------------------- use all middleware
 cms_app.use(express.json());
+
+// --------------------------------------- Initial MongoDB Connection
+databaseConnection.dbConnect().then(() => {
+    console.log('database connected successfully');
+});
 
 // --------------------------------------- Use Morgan Package for log all http event
 cms_app.use(morgan('combined'));

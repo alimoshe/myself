@@ -1,6 +1,7 @@
 import React from "react";
 import Products from "../pages/products";
 import GalleryPage from "../pages/gallery";
+import Vendors from "../pages/vendors";
 
 const ComponentLoader = ({sectionId}) => {
     switch (sectionId) {
@@ -8,6 +9,8 @@ const ComponentLoader = ({sectionId}) => {
             return <Products />
         case 2:
             return <GalleryPage />
+        case 3:
+            return <Vendors />
         default :
             return <Products />
     }
