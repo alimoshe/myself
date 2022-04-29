@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Card,
@@ -10,13 +10,26 @@ import {
   Modal,
   Row,
   Space,
+  Alert,
   Table,
 } from "antd";
 import Toolbar from "../components/toolbar";
 import CategorySelect from "../components/categorySelect";
 import vendorsTableColumns from "../tables-columns/vendor-columns";
+import vendorApi from "../api/vendor";
+import $ from "jquery";
+import "./css/table.style.css";
 
-const VendorEntry = ({ model, show, handleOk, handleCancel }) => {
+const VendorEntry = ({
+  model,
+  show,
+  handleOk,
+  handleCancel,
+  handleCreateVendor,
+}) => {
+  const onVendorCreate = (vendor) => {
+    handleCreateVendor(vendor);
+  };
   return (
     <Modal
       width={"40%"}
@@ -28,14 +41,14 @@ const VendorEntry = ({ model, show, handleOk, handleCancel }) => {
       onOk={handleOk}
       onCancel={handleCancel}
     >
-      <VendorEntModal />
+      <VendorEntModal onFormSave={onVendorCreate} />
     </Modal>
   );
 };
 
-const VendorEntModal = () => {
+const VendorEntModal = ({ onFormSave }) => {
   const onFinish = (values) => {
-    console.log("Success:", values);
+    onFormSave(values);
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -108,7 +121,7 @@ const VendorEntModal = () => {
       </Form.Item>
       <Form.Item
         label="نام رابط تامین کننده"
-        name="agenFullName"
+        name="agentFullName"
         rules={[
           {
             required: false,
@@ -161,8 +174,73 @@ const VendorEntModal = () => {
 const Vendors = () => {
   const [categories, setCategories] = useState([]);
   const [showVendorEntry, setShowVendorEntry] = useState(false);
+  const [alertObject, setAlertObject] = useState({
+    style: { display: "none" },
+  });
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  const [vendors, setVendors] = useState([]);
+  useEffect(() => {
+    vendorApi.loadAllVendors((vendors) => {
+      setVendors(vendors);
+    });
+  }, []);
+  const handleSelect = (record, selected) => {
+    if (selected) {
+      setSelectedRowKeys((keys) => [...keys, record.key]);
+    } else {
+      setSelectedRowKeys((keys) => {
+        const index = keys.indexOf(record.key);
+        console.log(...keys.slice(0, index), ...keys.slice(index + 1));
+        return [...keys.slice(0, index), ...keys.slice(index + 1)];
+      });
+    }
+  };
+  const toggleSelectAll = () => {
+    setSelectedRowKeys((keys) =>
+      keys.length === vendors.length ? [] : vendors.map((r) => r.key)
+    );
+  };
+
+  const headerCheckbox = (
+    <Checkbox
+      checked={selectedRowKeys.length}
+      indeterminate={
+        selectedRowKeys.length > 0 && selectedRowKeys.length < vendors.length
+      }
+      onChange={toggleSelectAll}
+    />
+  );
+
+  const rowSelection = {
+    selectedRowKeys,
+    type: "checkbox",
+    fixed: true,
+    onSelect: handleSelect,
+    columnTitle: headerCheckbox,
+    //onSelectAll: this.handleSelectAll
+  };
+  const createVendor = (vendor) => {
+    vendorApi.createVendor(vendor, (compeleteResult) => {
+      if (compeleteResult.err) {
+        setAlertObject({
+          style: { display: "" },
+          type: "error",
+          message: compeleteResult.err.errMessage,
+        });
+        $(".ant-modal-close-x").click();
+      } else {
+        setAlertObject({
+          style: { display: "" },
+          type: "success",
+          message: "تامین کننده ثبت شد",
+        });
+        $(".ant-modal-close-x").click();
+      }
+    });
+  };
   return (
     <React.Fragment>
+      <Alert showIcon {...alertObject} />
       <Card
         title="تامین گننده کالا و خدمات"
         type={"inner"}
@@ -178,23 +256,36 @@ const Vendors = () => {
               onCreateClick={() => setShowVendorEntry(true)}
             />
           </Col>
-          <Col span={16}>
-            <Button type={"primary"} size={"large"} style={{ float: "left" }}>
-              test
-            </Button>
-          </Col>
+          <Col span={16}></Col>
         </Row>
         <Divider />
         <Row>
           <Col span={12}>
             <CategorySelect categories={categories} />
           </Col>
-          <Col span={12}>test</Col>
         </Row>
         <Divider />
         <Row>
           <Col span={24}>
-            <Table columns={vendorsTableColumns} pagination />
+            <Table
+              rowSelection={ {
+                onChange : (selectedRowKeys, selectedRows) => {
+                  console.log(`selectedRowKeys: ${selectedRowKeys}`, 
+                  'selectedRows: ', selectedRows);
+                }, type:"radio"}}
+              columns={vendorsTableColumns}
+              rowKey={(record) => record.key}
+              dataSource={vendors}
+              pagination={{
+                
+                size: "medium",
+                //current: currentPage,
+                //onChange: (page) => setCurrentPage(page),
+                defaultPageSize: 10,
+                showSizeChanger: true,
+                pageSizeOptions: ["10", "20", "30"],
+              }}
+            />
           </Col>
         </Row>
         <Row>
@@ -202,6 +293,7 @@ const Vendors = () => {
             <VendorEntry
               show={showVendorEntry}
               handleCancel={() => setShowVendorEntry(false)}
+              handleCreateVendor={createVendor}
             />
           </Col>
         </Row>

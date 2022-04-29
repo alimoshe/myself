@@ -2,6 +2,7 @@ import React from "react";
 import Products from "../pages/products";
 import GalleryPage from "../pages/gallery";
 import Vendors from "../pages/vendors";
+import TestPage from "../pages/test";
 
 const ComponentLoader = ({sectionId}) => {
     switch (sectionId) {

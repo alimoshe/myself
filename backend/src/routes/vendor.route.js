@@ -9,6 +9,7 @@ vendorRouter.get('/:active', async (req, res) => {
 
 vendorRouter.post('/', async (req, res)=>{
     const vendor = req.body;
+    console.log('request Body', req.body);
     return res.status(200).send(await vendorDAO.createVendor(vendor));
 })
 module.exports = vendorRouter;

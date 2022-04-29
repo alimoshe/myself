@@ -38,3 +38,6 @@ body {
 .divider-5{
     height: 5rem;
 }
+.column-visible-false {
+    display: 'none';
+}
