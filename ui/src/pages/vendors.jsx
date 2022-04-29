@@ -136,8 +136,8 @@ const VendorEntModal = ({ onFormSave }) => {
         name="code"
         rules={[
           {
-            required: false,
-            message: "Please input your username!",
+            required: true,
+            message: "کد شرکت الزامی است",
           },
         ]}
       >
@@ -184,41 +184,10 @@ const Vendors = () => {
       setVendors(vendors);
     });
   }, []);
-  const handleSelect = (record, selected) => {
-    if (selected) {
-      setSelectedRowKeys((keys) => [...keys, record.key]);
-    } else {
-      setSelectedRowKeys((keys) => {
-        const index = keys.indexOf(record.key);
-        console.log(...keys.slice(0, index), ...keys.slice(index + 1));
-        return [...keys.slice(0, index), ...keys.slice(index + 1)];
-      });
-    }
-  };
-  const toggleSelectAll = () => {
-    setSelectedRowKeys((keys) =>
-      keys.length === vendors.length ? [] : vendors.map((r) => r.key)
-    );
-  };
 
-  const headerCheckbox = (
-    <Checkbox
-      checked={selectedRowKeys.length}
-      indeterminate={
-        selectedRowKeys.length > 0 && selectedRowKeys.length < vendors.length
-      }
-      onChange={toggleSelectAll}
-    />
-  );
 
-  const rowSelection = {
-    selectedRowKeys,
-    type: "checkbox",
-    fixed: true,
-    onSelect: handleSelect,
-    columnTitle: headerCheckbox,
-    //onSelectAll: this.handleSelectAll
-  };
+
+
   const createVendor = (vendor) => {
     vendorApi.createVendor(vendor, (compeleteResult) => {
       if (compeleteResult.err) {
@@ -258,23 +227,20 @@ const Vendors = () => {
           </Col>
           <Col span={16}></Col>
         </Row>
-        <Divider />
         <Row>
-          <Col span={12}>
-            <CategorySelect categories={categories} />
-          </Col>
         </Row>
         <Divider />
         <Row>
           <Col span={24}>
             <Table
+            columns={vendorsTableColumns}
               rowSelection={ {
                 onChange : (selectedRowKeys, selectedRows) => {
                   console.log(`selectedRowKeys: ${selectedRowKeys}`, 
                   'selectedRows: ', selectedRows);
-                }, type:"radio"}}
-              columns={vendorsTableColumns}
-              rowKey={(record) => record.key}
+                }, type:"checkbox"}}
+              
+              rowKey={(record) => record.code}
               dataSource={vendors}
               pagination={{
                 

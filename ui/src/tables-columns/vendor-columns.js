@@ -1,10 +1,10 @@
 const vendorsTableColumns = [
-    {
-        title: 'id',
-        dataIndex: 'id',
-        key: 'id',
 
-        hidden : true, 
+    {
+        title: 'کد شرکت',
+        dataIndex: 'code',
+        key: 'code',
+      
     },
     {
         title: 'عنوان تامین کننده',
@@ -25,23 +25,12 @@ const vendorsTableColumns = [
      
     },
     {
-        title: 'آدرس وب سایت',
-        dataIndex: 'webSiteAddress',
-        key: 'webSiteAddress',
-      
-    },
-    {
         title: 'نام رابط تامین کننده',
         dataIndex: 'agentFullName',
         key: 'agentFullName',
        
     },
-    {
-        title:'عملیات',
-        dataIndex: 'operation',
-        key : 'operation',
-    
-    }
+
 ];
 
-export default  vendorsTableColumns.filter(col => col.dataIndex !== 'id');;
+export default vendorsTableColumns.filter(col => col.dataIndex !== '_id' &&  col.dataIndex !== '__v');
