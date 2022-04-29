@@ -33,6 +33,10 @@ const VendorModel = new mongoose.Schema({
         required:false,
         default : true
     },
+    authPhoneNimber : {
+        type:String, 
+        required: false,
+    },
     disActiveDate : {
         type:Date,
         required:false
