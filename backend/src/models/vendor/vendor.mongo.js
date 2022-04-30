@@ -3,7 +3,7 @@ const vendorModel = require('./vendor.model');
 
 async function getVendors(active) {
     if (active)
-        return vendorModel.find({active: true},{_id:0,__v:0});
+        return vendorModel.find({active: true},{__v:0});
     else
         return vendorModel.find();
 }

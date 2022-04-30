@@ -204,7 +204,7 @@ const Vendors = () => {
             setAlertObject({
                 style: {display: "none"},
             });
-
+            setShowVendorEntry(true);
 
         }
     }
@@ -261,7 +261,8 @@ const Vendors = () => {
                             columns={vendorsTableColumns}
                             rowSelection={{
                                 onChange: (selectedRowKeys, selectedRows) => {
-                                    setSelectedRowKeys(selectedRowKeys);
+                                    setSelectedRowKeys(selectedRows);
+                                    console.log(selectedRows);
                                 }, type: "checkbox"
                             }}
 
