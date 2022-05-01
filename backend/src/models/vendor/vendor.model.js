@@ -33,7 +33,7 @@ const VendorModel = new mongoose.Schema({
         required:false,
         default : true
     },
-    authPhoneNimber : {
+    authPhoneNumber : {
         type:String, 
         required: false,
     },

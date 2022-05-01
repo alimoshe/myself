@@ -1,4 +1,4 @@
-const { DUPLICATE_CODE } = require('../../config/constant');
+const { DUPLICATE_CODE, UPDATE_DB_ERROR} = require('../../config/constant');
 const vendorModel = require('./vendor.model');
 
 async function getVendors(active) {
@@ -12,12 +12,33 @@ async function createVendor(vendor) {
     const vendorCode = vendor.code ;
     const result = await vendorModel.find({code : vendorCode});
     if(result.length > 0){
-        return ({Response : null, err : DUPLICATE_CODE });
+        return ({err : DUPLICATE_CODE });
     }
     return vendorModel.create(vendor);
-
 }
+
+async function updateVendor(vendor, oldOne) {
+    try {
+
+        console.log(vendor);
+
+        const newVendorCode = vendor.code;
+        const oldVendorCode = oldOne.code;
+
+        if (oldVendorCode !== newVendorCode) {
+            const result = await vendorModel.find({code: newVendorCode, active:true});
+            if (result.length > 0) {
+                return ({err: DUPLICATE_CODE});
+            }
+        }
+        return vendorModel.updateMany({_id: oldOne._id,}, {...vendor});
+    }catch (err) {
+        return ({err : {...UPDATE_DB_ERROR}})
+    }
+}
+
 module.exports = {
     getVendors,
     createVendor,
+    updateVendor,
 }

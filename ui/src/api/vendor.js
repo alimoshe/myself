@@ -18,6 +18,17 @@ const vendorApi = {
         createCompletion(result);
       });
   },
+  updateVendor: (oldVendor, newVendor, createCompletion) => {
+    fetch(VENDOR_BASE_URL+'/ed', {
+      method: "POST",
+      body: JSON.stringify({oldVendor : oldVendor, newVendor : newVendor}),
+      headers: { "Content-Type": "application/json" },
+    })
+        .then((postResult) => postResult.json())
+        .then((result) => {
+          createCompletion(result);
+        });
+  },
 };
 
 export default vendorApi;

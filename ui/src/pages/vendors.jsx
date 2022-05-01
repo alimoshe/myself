@@ -23,11 +23,15 @@ const VendorEntry = ({
                          updateMode,
                          handleOk,
                          handleCancel,
+                         handleUpdateVendor,
                          handleCreateVendor,
                      }) => {
 
     const onVendorCreate = (vendor) => {
         handleCreateVendor(vendor);
+    };
+    const onVendorUpdate = (newVendor, oldVendor) => {
+        handleUpdateVendor(newVendor, oldVendor);
     };
     return (
         <Modal
@@ -42,15 +46,21 @@ const VendorEntry = ({
             onCancel={handleCancel}
         >
 
-            <VendorEntModal onFormSave={onVendorCreate} dataModel={updateMode === true ? model : null }/>
+            <VendorEntModal onCreateNew={onVendorCreate}
+                            onUpdate={onVendorUpdate}
+                            dataModel={updateMode === true ? model : null }
+                            updateMode={updateMode}/>
         </Modal>
     );
 };
 
-const VendorEntModal = ({onFormSave, dataModel, updateMode}) => {
+const VendorEntModal = ({onCreateNew, dataModel, updateMode, onUpdate}) => {
 
     const onFinish = (values) => {
-        onFormSave(values);
+        if(updateMode !== true) {
+            onCreateNew(values);
+        }else
+            onUpdate(dataModel[0], values);
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -119,7 +129,7 @@ const VendorEntModal = ({onFormSave, dataModel, updateMode}) => {
                 </Form.Item>
                 <Form.Item
                     label="آدرس وب سایت"
-                    name="websiteAddress"
+                    name="webSiteAddress"
                     rules={[
                         {
                             required: false,
@@ -224,8 +234,7 @@ const Vendors = () => {
         setShowVendorEntry(true);
     }
 
-    const createVendor = (vendor, editMode) => {
-        if (!editMode) {
+    const createVendor = (vendor) => {
             // Create new Vendor
             vendorApi.createVendor(vendor, (completionResult) => {
                 if (completionResult.err) {
@@ -244,9 +253,28 @@ const Vendors = () => {
                     $(".ant-modal-close-x").click();
                 }
             });
-        }else{
-            // Updating existing once
-        }
+    }
+
+    const updateVendor = (oldVendor, newVendor) => {
+        // Create new Vendor
+        vendorApi.updateVendor(oldVendor,newVendor, (completionResult) => {
+            console.log(completionResult);
+            if (completionResult.err) {
+                setAlertObject({
+                    style: {display: ""},
+                    type: "error",
+                    message: completionResult.err.errMessage,
+                });
+                $(".ant-modal-close-x").click();
+            } else {
+                setAlertObject({
+                    style: {display: ""},
+                    type: "success",
+                    message: "تامین کننده ثبت شد",
+                });
+                $(".ant-modal-close-x").click();
+            }
+        });
     }
     return (
         <React.Fragment>
@@ -265,6 +293,10 @@ const Vendors = () => {
                             read
                             size={"large"}
                             type={"circle"}
+                            onRefreshClick={ () =>
+                                vendorApi.loadAllVendors((vendors) => {
+                                setVendors(vendors)})}
+
                             onUpdateClick={handleCandidateToUpdate}
                             onCreateClick={handleAddVendorClick}
                         />
@@ -309,6 +341,7 @@ const Vendors = () => {
                             updateMode={editVendor}
                             handleCancel={() => setShowVendorEntry(false)}
                             handleCreateVendor={createVendor}
+                            handleUpdateVendor={updateVendor}
                         />
                     </Col>
                 </Row>
