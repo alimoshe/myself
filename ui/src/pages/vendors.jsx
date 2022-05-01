@@ -20,10 +20,12 @@ import "./css/table.style.css";
 const VendorEntry = ({
                          model,
                          show,
+                         updateMode,
                          handleOk,
                          handleCancel,
                          handleCreateVendor,
                      }) => {
+
     const onVendorCreate = (vendor) => {
         handleCreateVendor(vendor);
     };
@@ -36,16 +38,16 @@ const VendorEntry = ({
             visible={show}
             footer={null}
             onOk={handleOk}
+            destroyOnClose={true}
             onCancel={handleCancel}
         >
-            <VendorEntModal onFormSave={onVendorCreate}/>
+
+            <VendorEntModal onFormSave={onVendorCreate} dataModel={updateMode === true ? model : null }/>
         </Modal>
     );
 };
 
-const VendorEntModal = ({onFormSave}) => {
-
-    const formRef = useRef();
+const VendorEntModal = ({onFormSave, dataModel, updateMode}) => {
 
     const onFinish = (values) => {
         onFormSave(values);
@@ -54,123 +56,131 @@ const VendorEntModal = ({onFormSave}) => {
     const onFinishFailed = (errorInfo) => {
         console.log("Failed:", errorInfo);
     };
+    let renderModel = {};
+    if(dataModel){
+        renderModel = {...dataModel[0]};
+    }
 
     return (
-        <Form
-            name="basic"
-            ref={formRef}
-            labelCol={{
-                span: 8,
-            }}
-            wrapperCol={{
-                span: 16,
-            }}
-            initialValues={{
-                remember: false,
-            }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-        >
-            <Form.Item
-                label="عنوان تامین کننده"
-                name="title"
+        <>
 
-                rules={[
-                    {
-                        required: true,
-                        message: "عنوان الزامی است",
-                    },
-                ]}
-            >
-                <Input/>
-            </Form.Item>
-            <Form.Item
-                label="کد اقتصادی"
-                name="ecoCode"
-                rules={[
-                    {
-                        required: false,
-                        message: "",
-                    },
-                ]}
-            >
-                <Input/>
-            </Form.Item>
-            <Form.Item
-                label="آدرس پستی"
-                name="address"
-                rules={[
-                    {
-                        required: true,
-                        message: "آدرس الزامی است",
-                    },
-                ]}
-            >
-                <Input/>
-            </Form.Item>
-            <Form.Item
-                label="آدرس وب سایت"
-                name="websiteAddress"
-                rules={[
-                    {
-                        required: false,
-                        message: "Please input your username!",
-                    },
-                ]}
-            >
-                <Input/>
-            </Form.Item>
-            <Form.Item
-                label="نام رابط تامین کننده"
-                name="agentFullName"
-                rules={[
-                    {
-                        required: false,
-                        message: "Please input your username!",
-                    },
-                ]}
-            >
-                <Input/>
-            </Form.Item>
-            <Form.Item
-                label="کد تامین کننده در وب سایت"
-                name="code"
-                rules={[
-                    {
-                        required: true,
-                        message: "کد شرکت الزامی است",
-                    },
-                ]}
-            >
-                <Input/>
-            </Form.Item>
-
-            <Form.Item
-                label="شماره همراه رابط"
-                name="authPhoneNumber"
-                rules={[
-                    {
-                        required: true,
-                        message: "برای عملیات احراز هویت ازامی است",
-                    },
-                ]}
-            >
-                <Input/>
-            </Form.Item>
-
-            <Form.Item
+            <Form
+                name="base"
+                labelCol={{
+                    span: 8,
+                }}
                 wrapperCol={{
-                    offset: 8,
                     span: 16,
                 }}
+                initialValues={{
+                    ...renderModel,
+                    remember: false,
+                }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                autoComplete="off"
             >
-                <Button type={"primary"} htmlType={"submit"} size={"large"}>
-                    دخیره تغییرات
-                </Button>
-            </Form.Item>
-        </Form>
+                <Form.Item
+                    label="عنوان تامین کننده"
+                    name="title"
+
+                    rules={[
+                        {
+                            required: true,
+                            message: "عنوان الزامی است",
+                        },
+                    ]}
+                >
+                    <Input/>
+                </Form.Item>
+                <Form.Item
+                    label="کد اقتصادی"
+                    name="ecoCode"
+                    rules={[
+                        {
+                            required: false,
+                            message: "",
+                        },
+                    ]}
+                >
+                    <Input/>
+                </Form.Item>
+                <Form.Item
+                    label="آدرس پستی"
+                    name="address"
+                    rules={[
+                        {
+                            required: true,
+                            message: "آدرس الزامی است",
+                        },
+                    ]}
+                >
+                    <Input/>
+                </Form.Item>
+                <Form.Item
+                    label="آدرس وب سایت"
+                    name="websiteAddress"
+                    rules={[
+                        {
+                            required: false,
+                            message: "Please input your username!",
+                        },
+                    ]}
+                >
+                    <Input/>
+                </Form.Item>
+                <Form.Item
+                    label="نام رابط تامین کننده"
+                    name="agentFullName"
+                    rules={[
+                        {
+                            required: false,
+                            message: "Please input your username!",
+                        },
+                    ]}
+                >
+                    <Input/>
+                </Form.Item>
+                <Form.Item
+                    label="کد تامین کننده در وب سایت"
+                    name="code"
+                    rules={[
+                        {
+                            required: true,
+                            message: "کد شرکت الزامی است",
+                        },
+                    ]}
+                >
+                    <Input/>
+                </Form.Item>
+
+                <Form.Item
+                    label="شماره همراه رابط"
+                    name="authPhoneNumber"
+                    rules={[
+                        {
+                            required: true,
+                            message: "برای عملیات احراز هویت ازامی است",
+                        },
+                    ]}
+                >
+                    <Input/>
+                </Form.Item>
+
+                <Form.Item
+                    wrapperCol={{
+                        offset: 8,
+                        span: 16,
+                    }}
+                >
+                    <Button type={"primary"} htmlType={"submit"} size={"large"}>
+                        دخیره تغییرات
+                    </Button>
+                </Form.Item>
+            </Form>
+        </>
     );
+
 };
 
 const Vendors = () => {
@@ -179,7 +189,7 @@ const Vendors = () => {
         style: {display: "none"},
     });
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-    const [vendorObject, setVendorObject] = useState({});
+    const [editVendor, setEditVendor] = useState(false);
     const [vendors, setVendors] = useState([]);
     useEffect(() => {
         vendorApi.loadAllVendors((vendors) => {
@@ -188,45 +198,56 @@ const Vendors = () => {
     }, []);
 
     const handleCandidateToUpdate = (e) => {
-        if(selectedRowKeys.length < 1){
+        if (selectedRowKeys.length < 1) {
             setAlertObject({
                 style: {display: ""},
                 type: "error",
                 message: "لطفا یک سطر را انتخاب نمائید تا عملیات ویرایش بر روی آن انجام شود",
             });
-        }else if (selectedRowKeys.length > 1){
+        } else if (selectedRowKeys.length > 1) {
             setAlertObject({
                 style: {display: ""},
                 type: "warning",
                 message: `این عملیات فقط نیاز به انتخاب یک سطر دارد`,
             });
-        }else{
+        } else {
             setAlertObject({
                 style: {display: "none"},
             });
             setShowVendorEntry(true);
-
+            setEditVendor(true);
         }
     }
-    const createVendor = (vendor) => {
-        vendorApi.createVendor(vendor, (completionResult) => {
-            if (completionResult.err) {
-                setAlertObject({
-                    style: {display: ""},
-                    type: "error",
-                    message: completionResult.err.errMessage,
-                });
-                $(".ant-modal-close-x").click();
-            } else {
-                setAlertObject({
-                    style: {display: ""},
-                    type: "success",
-                    message: "تامین کننده ثبت شد",
-                });
-                $(".ant-modal-close-x").click();
-            }
-        });
-    };
+
+    const handleAddVendorClick = (e) => {
+        setEditVendor(false);
+        setShowVendorEntry(true);
+    }
+
+    const createVendor = (vendor, editMode) => {
+        if (!editMode) {
+            // Create new Vendor
+            vendorApi.createVendor(vendor, (completionResult) => {
+                if (completionResult.err) {
+                    setAlertObject({
+                        style: {display: ""},
+                        type: "error",
+                        message: completionResult.err.errMessage,
+                    });
+                    $(".ant-modal-close-x").click();
+                } else {
+                    setAlertObject({
+                        style: {display: ""},
+                        type: "success",
+                        message: "تامین کننده ثبت شد",
+                    });
+                    $(".ant-modal-close-x").click();
+                }
+            });
+        }else{
+            // Updating existing once
+        }
+    }
     return (
         <React.Fragment>
             <Alert showIcon {...alertObject} />
@@ -245,7 +266,7 @@ const Vendors = () => {
                             size={"large"}
                             type={"circle"}
                             onUpdateClick={handleCandidateToUpdate}
-                            onCreateClick={() => setShowVendorEntry(true)}
+                            onCreateClick={handleAddVendorClick}
                         />
                     </Col>
                     <Col span={16}>
@@ -262,7 +283,7 @@ const Vendors = () => {
                             rowSelection={{
                                 onChange: (selectedRowKeys, selectedRows) => {
                                     setSelectedRowKeys(selectedRows);
-                                    console.log(selectedRows);
+
                                 }, type: "checkbox"
                             }}
 
@@ -284,7 +305,8 @@ const Vendors = () => {
                     <Col span={12}>
                         <VendorEntry
                             show={showVendorEntry}
-                            model={vendorObject}
+                            model={selectedRowKeys}
+                            updateMode={editVendor}
                             handleCancel={() => setShowVendorEntry(false)}
                             handleCreateVendor={createVendor}
                         />
