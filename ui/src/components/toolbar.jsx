@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Space, Tooltip} from "antd";
+import {Button, Popconfirm, Space, Tooltip} from "antd";
 import {DeleteOutlined, EditOutlined, PlusCircleOutlined, SearchOutlined} from "@ant-design/icons";
 
 const Toolbar = ({
@@ -13,7 +13,9 @@ const Toolbar = ({
                      onCreateClick,
                      onUpdateClick,
                      onRefreshClick,
-                     onRemoveClick
+                     onRemoveClick,
+                     onRemoveConfirm,
+                     showRemovePopConfirm
                  }) => {
     return (
         <div>
@@ -46,14 +48,22 @@ const Toolbar = ({
                 }
                 {
                     remove && (
-                        <Tooltip title={"حذف اطلاعات"}>
-                            <Button type={"primary"}
-                                    onClick={onRemoveClick}
-                                    shape={type}
-                                    size={size}
-                                    icon={<DeleteOutlined/>}/>
+                        <Popconfirm
+                            title="آیا از حذف مورد انتخاب شده مطمئن هستید ؟"
+                            onConfirm={onRemoveConfirm}
+                            visible={showRemovePopConfirm}
+                            okText="بله"
+                            cancelText="خیر"
+                        >
+                            <Tooltip title={"حذف اطلاعات"}>
+                                <Button type={"primary"}
+                                        onClick={onRemoveClick}
+                                        shape={type}
+                                        size={size}
+                                        icon={<DeleteOutlined/>}/>
 
-                        </Tooltip>
+                            </Tooltip>
+                        </Popconfirm>
 
                     )
                 }

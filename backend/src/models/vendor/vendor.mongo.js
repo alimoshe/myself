@@ -37,8 +37,13 @@ async function updateVendor(vendor, oldOne) {
     }
 }
 
+async function removeVendor(vendor) {
+    return vendorModel.deleteOne(vendor);
+}
+
 module.exports = {
     getVendors,
     createVendor,
     updateVendor,
+    removeVendor
 }

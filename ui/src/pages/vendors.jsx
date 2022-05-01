@@ -9,7 +9,7 @@ import {
     Modal,
     Row,
     Alert,
-    Table,
+    Table, Result,
 } from "antd";
 import Toolbar from "../components/toolbar";
 import vendorsTableColumns from "../tables-columns/vendor-columns";
@@ -48,7 +48,7 @@ const VendorEntry = ({
 
             <VendorEntModal onCreateNew={onVendorCreate}
                             onUpdate={onVendorUpdate}
-                            dataModel={updateMode === true ? model : null }
+                            dataModel={updateMode === true ? model : null}
                             updateMode={updateMode}/>
         </Modal>
     );
@@ -57,9 +57,9 @@ const VendorEntry = ({
 const VendorEntModal = ({onCreateNew, dataModel, updateMode, onUpdate}) => {
 
     const onFinish = (values) => {
-        if(updateMode !== true) {
+        if (updateMode !== true) {
             onCreateNew(values);
-        }else
+        } else
             onUpdate(dataModel[0], values);
     };
 
@@ -67,7 +67,7 @@ const VendorEntModal = ({onCreateNew, dataModel, updateMode, onUpdate}) => {
         console.log("Failed:", errorInfo);
     };
     let renderModel = {};
-    if(dataModel){
+    if (dataModel) {
         renderModel = {...dataModel[0]};
     }
 
@@ -198,34 +198,68 @@ const Vendors = () => {
     const [alertObject, setAlertObject] = useState({
         style: {display: "none"},
     });
+    const [showPopup, setShowPopup] = useState(false);
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [editVendor, setEditVendor] = useState(false);
     const [vendors, setVendors] = useState([]);
+
     useEffect(() => {
         vendorApi.loadAllVendors((vendors) => {
             setVendors(vendors);
         });
     }, []);
 
-    const handleCandidateToUpdate = (e) => {
+    const selectionCheckCriteria = () => {
         if (selectedRowKeys.length < 1) {
             setAlertObject({
                 style: {display: ""},
                 type: "error",
-                message: "لطفا یک سطر را انتخاب نمائید تا عملیات ویرایش بر روی آن انجام شود",
+                message: "لطفا یک سطر را انتخاب نمائید تا عملیات بر روی آن انجام شود",
             });
+            return false;
         } else if (selectedRowKeys.length > 1) {
             setAlertObject({
                 style: {display: ""},
                 type: "warning",
                 message: `این عملیات فقط نیاز به انتخاب یک سطر دارد`,
             });
-        } else {
+            return false;
+        }
+
+        return true;
+    }
+    const handleCandidateToUpdate = (e) => {
+        if (selectionCheckCriteria()) {
             setAlertObject({
                 style: {display: "none"},
             });
             setShowVendorEntry(true);
             setEditVendor(true);
+        }
+    }
+
+    const handleRemove = () => {
+        if (selectionCheckCriteria()) {
+            setAlertObject({
+                style: {display: "none"},
+            });
+            vendorApi.removeVendor(selectedRowKeys, (result) => {
+                if (result.err) {
+                    setAlertObject({
+                        style: {display: ""},
+                        type: "error",
+                        message: result.err.errMessage,
+                    });
+                    $(".ant-modal-close-x").click();
+                } else {
+                    setAlertObject({
+                        style: {display: ""},
+                        type: "success",
+                        message: "تامین کننده حذف شد",
+                    });
+                    $(".ant-modal-close-x").click();
+                }
+            })
         }
     }
 
@@ -235,29 +269,29 @@ const Vendors = () => {
     }
 
     const createVendor = (vendor) => {
-            // Create new Vendor
-            vendorApi.createVendor(vendor, (completionResult) => {
-                if (completionResult.err) {
-                    setAlertObject({
-                        style: {display: ""},
-                        type: "error",
-                        message: completionResult.err.errMessage,
-                    });
-                    $(".ant-modal-close-x").click();
-                } else {
-                    setAlertObject({
-                        style: {display: ""},
-                        type: "success",
-                        message: "تامین کننده ثبت شد",
-                    });
-                    $(".ant-modal-close-x").click();
-                }
-            });
+        // Create new Vendor
+        vendorApi.createVendor(vendor, (completionResult) => {
+            if (completionResult.err) {
+                setAlertObject({
+                    style: {display: ""},
+                    type: "error",
+                    message: completionResult.err.errMessage,
+                });
+                $(".ant-modal-close-x").click();
+            } else {
+                setAlertObject({
+                    style: {display: ""},
+                    type: "success",
+                    message: "تامین کننده ثبت شد",
+                });
+                $(".ant-modal-close-x").click();
+            }
+        });
     }
 
     const updateVendor = (oldVendor, newVendor) => {
         // Create new Vendor
-        vendorApi.updateVendor(oldVendor,newVendor, (completionResult) => {
+        vendorApi.updateVendor(oldVendor, newVendor, (completionResult) => {
             console.log(completionResult);
             if (completionResult.err) {
                 setAlertObject({
@@ -273,6 +307,9 @@ const Vendors = () => {
                     message: "تامین کننده ثبت شد",
                 });
                 $(".ant-modal-close-x").click();
+                vendorApi.loadAllVendors((vendors) => {
+                    setVendors(vendors)
+                });
             }
         });
     }
@@ -293,10 +330,12 @@ const Vendors = () => {
                             read
                             size={"large"}
                             type={"circle"}
-                            onRefreshClick={ () =>
+                            onRefreshClick={() =>
                                 vendorApi.loadAllVendors((vendors) => {
-                                setVendors(vendors)})}
-
+                                    setVendors(vendors)
+                                })}
+                            showRemovePopConfirm={showPopup}
+                            onRemoveClick={handleRemove}
                             onUpdateClick={handleCandidateToUpdate}
                             onCreateClick={handleAddVendorClick}
                         />
