@@ -2,7 +2,7 @@ import React from "react";
 import Products from "../pages/products";
 import GalleryPage from "../pages/gallery";
 import Vendors from "../pages/vendors";
-import TestPage from "../pages/test";
+import Test from "../pages/test";
 
 const ComponentLoader = ({sectionId}) => {
     switch (sectionId) {
@@ -11,7 +11,7 @@ const ComponentLoader = ({sectionId}) => {
         case 2:
             return <GalleryPage />
         case 3:
-            return <Vendors />
+            return <Test />
         default :
             return <Products />
     }
