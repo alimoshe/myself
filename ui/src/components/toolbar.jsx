@@ -50,14 +50,14 @@ const Toolbar = ({
                     remove && (
                         <Popconfirm
                             title="آیا از حذف مورد انتخاب شده مطمئن هستید ؟"
-                            onConfirm={onRemoveConfirm}
-                            visible={showRemovePopConfirm}
+                            onConfirm={onRemoveClick}
+                         
                             okText="بله"
                             cancelText="خیر"
                         >
                             <Tooltip title={"حذف اطلاعات"}>
                                 <Button type={"primary"}
-                                        onClick={onRemoveClick}
+                                       
                                         shape={type}
                                         size={size}
                                         icon={<DeleteOutlined/>}/>

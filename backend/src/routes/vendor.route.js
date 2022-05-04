@@ -18,7 +18,8 @@ vendorRouter.post('/ed', async (req, res)=>{
     return res.status(200).send(await vendorDAO.updateVendor(newVendor, oldVendor));
 });
 
-vendorRouter.delete('/id', async (req, res) => {
+vendorRouter.delete('/:id', async (req, res) => {
+    console.log(req.params);
     const objectId = req.params.id || true;
     return res.status(200).send(await vendorDAO.removeVendor(objectId));
 });

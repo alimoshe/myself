@@ -4,7 +4,7 @@ const vendorsTableColumns = [
         title: 'کد شرکت',
         dataIndex: 'code',
         key: 'code',
-      
+
     },
     {
         title: 'عنوان تامین کننده',

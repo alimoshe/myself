@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const galleryRouter = require('./routes/gallery.route');
 const categoryRouter = require('./routes/category.route');
 const vendorRouter = require('./routes/vendor.route');
+const productRouter = require('./routes/productRouter');
 
 const cms_app = express();
 const databaseConnection  = require('./services/mongodb.service');
@@ -27,6 +28,7 @@ cms_app.use(morgan('combined'));
 cms_app.use('/gallery', galleryRouter);
 cms_app.use('/category', categoryRouter);
 cms_app.use('/vendor', vendorRouter);
+cms_app.use('/product', productRouter);
 
 cms_app.get('/',(req, res)=>{
     res.status(200).send({

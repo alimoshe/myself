@@ -29,7 +29,8 @@ const GalleryPage = () => {
     const loadAllGalleryFiles = () => {
         setShowSpinner(true);
         commonApi.loadPaginatedGalleryData(1,10,(data) => {
-            setImages(data.content);
+            console.log(data)
+            setImages(data);
             setTotalPageItemsCount(data.length);
         });
         setShowSpinner(false);
