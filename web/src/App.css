@@ -47,18 +47,6 @@ body {
 .ant-layout-header {
   background-color: white !important;
 }
-.logo {
-  float: left;
-  width: 120px;
-  height: 120px;
-  text-align: center;
-  margin: 6px 4px 6px 0;
-  font-size: 30px;
-  cursor: pointer;
-}
 
-.ant-row-rtl .logo {
-  float: right;
-  margin: 16px 0 16px 24px;
-}
+
 
