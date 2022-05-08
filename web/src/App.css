@@ -39,11 +39,6 @@ body {
   height: 5rem;
 }
 
-.site-layout-content {
-  min-height: 280px;
-  padding: 24px;
-
-}
 .ant-layout-header {
   background-color: white !important;
 }
