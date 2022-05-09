@@ -31,16 +31,21 @@ function App() {
                                 [
                                     {
                                         key: 1,
-                                        label: 'محصولات' ,
+                                        label: 'پیکربندی صفحه نخست' ,
                                         onClick : onMenuItemClick
                                     },
                                     {
                                         key: 2,
-                                        label: 'گالری تصاویر',
+                                        label: 'محصولات' ,
                                         onClick : onMenuItemClick
                                     },
                                     {
                                         key: 3,
+                                        label: 'گالری تصاویر',
+                                        onClick : onMenuItemClick
+                                    },
+                                    {
+                                        key: 4,
                                         label: 'تامین کنندگان',
                                         onClick : onMenuItemClick
                                     },
