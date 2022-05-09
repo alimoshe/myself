@@ -12,13 +12,21 @@ const contentStyle = {
 const Slider = ({images}) => {
     return (
         <React.Fragment>
-            <Carousel dotPosition={"bottom"} style={{borderRadius: "10px", marginTop: "15px"}}>
+            <Carousel dotPosition={"bottom"} style={{
+                borderRadius: "10px",
+                marginTop: "15px",
+                backgroundColor: '#9fb7f8',
+                textAlign: 'center',
+                position:"relative"
+            }}>
                 {
                     images.map((data, index) => (
-                    <h3 style={contentStyle}>
-                        <img src={MAIN_PAGE_BASE_URL + '/rdc/slider/' + data} key={index} alt={data}/>
-                    </h3>
-                ))
+                        <div style={{textAlign:'center', top:'50%'}}>
+                        <h3 style={contentStyle}>
+                            <img src={MAIN_PAGE_BASE_URL + '/rdc/slider/' + data} key={index} alt={data}/>
+                        </h3>
+                        </div>
+                    ))
                 }
             </Carousel>
 
